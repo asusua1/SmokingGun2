@@ -1,0 +1,510 @@
+/* 전체 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    scroll-behavior: smooth; /* 부드러운 스크롤 */
+    overflow: hidden; /* 기본 body 스크롤 숨기기 */
+    align-items: center;
+
+}
+
+body {
+    overflow-y: scroll; /* 수직 스크롤 허용 */
+    scroll-snap-type: y mandatory; /* 스냅 스크롤 설정 */
+}
+
+.section {
+    height: 100vh; /* 각 섹션을 화면 전체 높이로 설정 */
+    display: flex;
+    overflow-y: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    scroll-snap-align: start; /* 섹션 시작점에 스냅 */
+    position: relative;
+    font-size: 2rem;
+    background-size: 100%; 
+    background-attachment: fixed;  
+} 
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5); /* 반투명 흰색 레이어 */
+    z-index: 0; /* 섹션 내용 뒤에 배치 */
+}
+
+/* 세로 선 스타일 */
+.vertical-line {
+    left: 7.2%;  /* 왼쪽에 위치 */
+    top: 25%;  /* 상단에 위치 */
+    width: 2px; /* 의 너비 */
+    height: calc(100% - 25%); /* 상단 띄운 만큼 제외한 높이 */
+    background-color: #000;  /* 선의 색상 */
+    z-index: 0;  /* 다른 콘텐츠보다 위로 올리기 */
+    position: absolute; /* 절대 위치 지정 */
+}
+@media only screen and (max-width: 768px)
+{
+    .vertical-line {
+        left: 7.2%;  /* 왼쪽에 위치 */
+        top: 15%;  /* 상단에 위치 */
+        width: 2px; /* 의 너비 */
+        height: calc(100% - 15%); /* 상단 띄운 만큼 제외한 높이 */
+        background-color: #000;  /* 선의 색상 */
+        z-index: 0;  /* 다른 콘텐츠보다 위로 올리기 */
+        position: absolute; /* 절대 위치 지정 */
+    }
+}
+/*-----------------------------------------------------------------*/
+
+/* 네비게이터 바 스타일 */
+.navbar {
+    position: sticky; /* 스크롤 시 상단에 고정 */
+    top: 0; /* 상단에 고정 */
+    background-color: #ffffff00; /* 배경색 */
+    z-index: 1000; /* 다른 콘텐츠보다 위로 올림 */
+    max-width: 1800px; /* 너비 100% */
+    max-height: fit-content;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 그림자 효과 */
+    padding: 10px 0; /* 상하 여백 */
+}
+
+/* 네비게이터 바 링크 스타일 */
+.nav-links {
+    list-style: none; /* 기본 리스트 스타일 제거 */
+    margin: 0; /* 여백 제거 */
+    padding: 0; /* 여백 제거 */
+    text-align: center; /* 가운데 정렬 */
+}
+
+/* 네비게이터 바 링크 항목 */
+.nav-links li {
+    display: inline-block; /* 가로 배치 */
+    margin: 0px; /* 항목 간 간격 */
+}
+
+/* 네비게이터 바 링크 */
+.nav-links a {
+    display: inline-block; /* 이미지가 가로로 배치되도록 설정 */
+    width: 17%; /* 이미지 너비 */
+    height: auto; /* 이미지 높이 */
+}
+
+/* 네비게이터 바 이미지 */
+.nav-links img {
+    width: 100%; /* 이미지가 버튼 크기에 맞게 조정 */
+    height: auto; /* 이미지 크기 조정 */
+    object-fit: contain; /* 이미지 비율 유지 */
+    transition: transform 0.3s ease; /* 호버 시 이미지 확대 효과 */
+    display: inline-block; /* 이미지가 가로로 배치되도록 설정 */
+    filter: blur(1px)  brightness(1.8)  opacity(50%); /* 기본적으로 흐리게 설정 */
+    transition: filter 0.3s ease; /* 필터 변경에 부드러운 전환 효과 추가 */
+}
+.nav-links li a:nth-child(5) img {
+    filter: blur(0); /* 다섯 번째 이미지만 블러 제거 */
+}
+/* 호버 시 이미지 확대 */
+.nav-links a:hover img, .nav-links :active img {
+    transform: scale(1.1) ease; /* 마우스 오버 시 이미지 확대 */
+    filter: blur(0); /* 호버 또는 활성화 시 선명하게 설정 */
+}
+
+.nav .category {
+    display: inline-block;
+    margin: 0 10px;
+    transition: filter 0.3s ease; /* 필터 변경에 부드러운 전환 효과 추가 */
+}
+
+/*-----------------------------------------------------------------*/
+/* 섹션별 배경 색상 */
+#section0 {  
+    background-image: url(image/bg.png);
+    background-size: 100%; /* 이미지 크기 조정 (50%로 줄임) */
+    background-position: center; /* 이미지 위치 중앙 */
+    background-repeat: no-repeat; /* 반복 방지 */
+    background-attachment: fixed; /* 고정 배경 */
+    
+ }
+#section1 {  
+    background-image: url(image/bg.png); 
+    background-size: 100%; /* 이미지 크기 조정 (50%로 줄임) */
+    background-position: center; /* 이미지 위치 중앙 */
+    background-repeat: no-repeat; /* 반복 방지 */
+    background-attachment: fixed; /* 고정 배경 */
+}
+#section2 {   background-image: url(image/bg.png); 
+    background-size: 100%; /* 이미지 크기 조정 (50%로 줄임) */
+    background-position: center; /* 이미지 위치 중앙 */
+    background-repeat: no-repeat; /* 반복 방지 */
+    background-attachment: fixed; /* 고정 배경 */
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+
+.title{
+    position: absolute;
+    height: 35%;
+    width: fit-content;
+    top: 20%;
+    left: 31.5%; 
+    padding: 10px;
+}
+@media only screen and (max-width: 768px)
+{
+    .title{
+        position: absolute;
+        height: 25%;
+        width: fit-content;
+        top: 20%;
+        left: 7%; 
+        padding: 10px;
+    }  
+}
+.title1{
+    position: absolute;
+    height: 275px;
+    width: fit-content;
+    top: 80px; 
+    left: 220px; 
+    padding: 10px;
+}
+@media only screen and (max-width: 768px)
+{
+    .title1{
+        position: absolute;
+        height: 175px;
+        width: fit-content;
+        top: 50px; 
+        left: 0px; 
+        padding: 10px;
+    }
+}
+
+.title2{
+    position: absolute;
+    height: 215px;
+    width: fit-content;
+    top: 20px; 
+    left: 1100px; 
+    padding: 10px;
+}
+@media only screen and (max-width: 768px)
+{
+    .title2{
+        position: absolute;
+        height: 90px;
+        width: fit-content;
+        top: 20px; 
+        left: 300px; 
+        padding: 10px;
+    }
+}
+.title3{
+    position: absolute;
+    height: 215px;
+    width: fit-content;
+    top: 35px; 
+    left: 1300px; 
+    padding: 10px;
+}
+@media only screen and (max-width: 768px)
+{
+    .title3{
+    position: absolute;
+    height: 90px;
+    width: fit-content;
+    top: 35px; 
+    left: 360px; 
+    padding: 10px;
+    }
+}
+.title4{
+    position: absolute;
+    height: 370px;
+    width: fit-content;
+    top: 525px; 
+    left: -25px; 
+    padding: 10px;
+}
+@media only screen and (max-width: 768px)
+{
+    .title4{
+        position: absolute;
+        height: 150px;
+        width: fit-content;
+        top: 450px; 
+        left: -25px; 
+        padding: 10px;
+        /* transform: scaleX(-1); X축을 기준으로 뒤집기 */
+    }
+}
+.title5{
+    position: absolute;
+    height: 600px;
+    width: fit-content;
+    top: 130px; 
+    left: 760px; 
+    padding: 10px;
+}
+@media only screen and (max-width: 768px)
+{
+    .title5{
+        position: absolute;
+        height: 330px;
+        width: fit-content;
+        top: 200px; 
+        left: 160px; 
+        padding: 10px;
+    }
+}
+.title6{
+    position: absolute;
+    height: 220px;
+    width: fit-content;
+    top: 580px; 
+    left: 1300px; 
+    padding: 10px;
+}
+@media only screen and (max-width: 768px)
+{
+    .title6{
+    display: none;
+}
+}
+.title7{
+    position: absolute;
+    height: 40px;
+    width: fit-content;
+    top: 575px; 
+    left: 440px; 
+    padding: 10px;
+}
+@media only screen and (max-width: 768px)
+{
+    .title7{
+    display: none;
+}
+}
+.title8{
+    position: absolute;
+    height: 120px;
+    width: fit-content;
+    top: 640px; 
+    left: 445px; 
+    padding: 10px;
+}
+@media only screen and (max-width: 768px)
+{
+    .title8{
+    display: none;
+}
+}
+.title9{
+    position: absolute;
+    height: 40px;
+    width: fit-content;
+    top: 580px; 
+    left: 380px; 
+    padding: 10px;
+}
+.title10{
+    position: absolute;
+    height: 270px;
+    width: fit-content;
+    top: 380px; 
+    left: 20px; 
+    padding: 10px;
+}
+.title11{
+    position: absolute;
+    height: 155px;
+    width: fit-content;
+    top: 40px; 
+    left: 1200px; 
+    padding: 10px;  
+}
+@media only screen and (max-width: 768px)
+{
+    .title9{
+    position: absolute;
+    height: 32px;
+    width: fit-content;
+    top: 400px; 
+    left: 23px; 
+    padding: 10px;
+}
+.title10, .title11{
+    display: none;
+}
+}
+/*--------------------------------------------------------------------------------------------------------------*/
+
+/* 본문 내 이미지 들어갈 범위*/
+.contentLeft {
+    position: absolute;
+    top: 10%;
+    left: 8%;
+    padding: 20px;
+    font-size: 1.5rem;
+    color: inherit;
+    max-width: 1200px;
+    max-height: auto;
+    align-items: center;
+}
+
+/* ----------------이미지 호버 -----------------------------*/
+.hover-container {
+    position: relative;
+    display: inline-block;
+}
+
+/*
+.nowon1-4 {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+*/
+
+.hover-link {
+    position: absolute;
+    top: 577px;
+    left: 485px;
+    transform: translateX(-50%);
+    display: none; /* 기본적으로 숨김 */
+    background-color: rgba(61, 64, 255, 0.783);
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-size: 14px;
+    text-align: center;
+    z-index: 10;
+    white-space: nowrap;  /* 텍스트가 한 줄로 유지되도록 */
+}
+
+/* 호버 시 링크 표시 */
+.hover-container:hover .hover-link {
+    display: block;
+}
+
+/* ------------------------------텍스트 -----------------------------*/
+/*본문 텍스트 전체 조정*/
+.main{
+    font-size: 15.5px;
+    line-height: 1.8;
+    font-weight: 400;
+    text-align: left;
+}
+@media only screen and (max-width: 768px)
+{
+    .main{
+        font-size: 11.5px;
+        line-height: 1.8;
+        font-weight: 500;
+        text-align: left;
+    }
+}
+/*본문 텍스트 조정할 범위*/
+.text{
+    position: relative;
+    top: -224px;
+    left: 0px;
+    width: 1500px;
+    height: auto;
+}
+.highlight {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.highlight.hovered {
+    background-color: #2a3b68; /* 노란색 하이라이트 */
+    color: #ffffff;
+    border-radius: 3px;
+}
+
+.highlight.reset {
+    background-color: transparent; /* 원래 상태 */
+    color: inherit;
+}
+/*유튜브----------------------------------------------------------------------------------------------------*/
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 비율 */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.video1{
+    position: absolute;
+    top: 300%;
+    left: 780%;
+    width: 800px;
+    height: 450px;
+}
+@media only screen and (max-width: 768px)
+{.video1{
+    position: absolute;
+    top: 300%;
+    left: 70%;
+    width: 400px;
+    height: 250px;
+}}
+/*.video2{
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    width: 700px;
+    height: 394px;
+}*/
+/*-------------------------------섹션 ----------------------*/
+.T{
+    position: absolute;
+    top: 15%;
+    left: 7.1%;
+}
+@media only screen and (max-width: 768px)
+{
+    .T{
+        position: absolute;
+        top: 11%;
+        left: 7.1%;
+        font-size: 1.5rem;
+    } 
+}
+#final1-1{
+    position: absolute;
+    height: auto;
+    width: 1260px;
+    top: 630px;
+    left: 160%; 
+    text-align: center;
+}
+@media only screen and (max-width: 768px)
+{
+    #final1-1{
+        position: absolute;
+        height: auto;
+        width: 400px;
+        top: 450px;
+        left: 80%; 
+        text-align: left;
+    }
+}
